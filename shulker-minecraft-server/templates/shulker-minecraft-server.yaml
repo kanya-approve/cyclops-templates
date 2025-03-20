@@ -1,0 +1,20 @@
+apiVersion: shulkermc.io/v1alpha1
+kind: MinecraftServerFleet
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  clusterRef:
+    name: minecraft-cluster
+  replicas: 1
+  template:
+    spec:
+      clusterRef:
+        name: minecraft-cluster
+      config: {}
+      version:
+        channel: Paper
+        customJar:
+          url: https://api.purpurmc.org/v2/purpur/{{ .Values.minecraftVersion }}/latest/download
+        name: {{ .Values.minecraftVersion }}
+      tags:
+        - {{ .Release.Name }}

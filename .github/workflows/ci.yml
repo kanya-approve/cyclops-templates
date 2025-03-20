@@ -1,0 +1,9 @@
+name: Cyclops-CI
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
