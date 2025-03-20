@@ -36,17 +36,15 @@
         "1.14.2",
         "1.14.1"
       ]
+    },
+    "persist": {
+      "description": "Whether to persist minecraft server data",
+      "type": "boolean"
     }
   },
   "order": [
-    "minecraftVersion"
-  ],
-  "required": [
-    "username",
-    "password",
-    "replicas",
-    "storage",
-    "service"
+    "minecraftVersion",
+    "persist"
   ],
   "title": "Values",
   "type": "object"
