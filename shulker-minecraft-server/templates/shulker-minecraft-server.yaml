@@ -11,6 +11,15 @@ spec:
       clusterRef:
         name: minecraft-cluster
       config: {}
+      podOverrides:
+        volumeMounts:
+          - name: {{ .Release.Name }}
+            mountPath: /data
+        volumes:
+          -  name: {{ .Release.Name }}
+             persistentVolumeClaim:
+               claimName: {{ .Release.Name }}
+               readOnly: false
       version:
         channel: Paper
         customJar:
