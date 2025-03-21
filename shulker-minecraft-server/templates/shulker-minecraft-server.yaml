@@ -35,5 +35,5 @@ spec:
   version:
     channel: Paper
     customJar:
-      url: https://api.purpurmc.org/v2/purpur/1.21.4/latest/download
+      url: https://api.purpurmc.org/v2/purpur/{{ .Values.minecraftVersion }}/latest/download
     name: {{ .Values.minecraftVersion }}
