@@ -1,13 +1,38 @@
 {{ if .Values.persist }}
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-end
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
-  storageClassName: longhorn
+  storageClassName: sata-xfs
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-nether
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: sata-xfs
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-world
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: sata-xfs
 {{ end }}
