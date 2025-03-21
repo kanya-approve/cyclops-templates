@@ -1,3 +1,4 @@
+---
 apiVersion: shulkermc.io/v1alpha1
 kind: MinecraftServer
 metadata:
