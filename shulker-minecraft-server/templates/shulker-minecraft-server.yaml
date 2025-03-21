@@ -9,6 +9,8 @@ spec:
   config:
     disableEnd: false
     disableNether: false
+    plugins:
+{{ toYaml .Values.plugins | indent 4 }}
   podOverrides:
     volumeMounts:
       - name: world

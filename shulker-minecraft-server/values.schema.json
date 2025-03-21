@@ -40,11 +40,26 @@
     "persist": {
       "description": "Whether to persist minecraft server data",
       "type": "boolean"
+    },
+    "plugins": {
+      "description": "List of plugin objects with download URLs",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "required": ["url"]
+      }
     }
   },
   "order": [
     "minecraftVersion",
-    "persist"
+    "persist",
+    "plugins"
   ],
   "title": "Values",
   "type": "object"
