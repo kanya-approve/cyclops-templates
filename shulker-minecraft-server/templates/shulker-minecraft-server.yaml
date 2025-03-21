@@ -1,24 +1,38 @@
 apiVersion: shulkermc.io/v1alpha1
-kind: MinecraftServerFleet
+kind: MinecraftServer
 metadata:
   name: {{ .Release.Name }}
 spec:
   clusterRef:
     name: minecraft-cluster
-  config: {}
+  config:
+    disableEnd: false
+    disableNether: false
   podOverrides:
     volumeMounts:
-      - name: {{ .Release.Name }}
-        mountPath: /data
+      - name: world
+        mountPath: /data/world
+      - name: nether
+        mountPath: /data/world_nether
+      - name: end
+        mountPath: /data/world_the_end
     volumes:
-      -  name: {{ .Release.Name }}
+      -  name: world
          persistentVolumeClaim:
-           claimName: {{ .Release.Name }}
+           claimName: {{ .Release.Name }}-world
            readOnly: false
+      -  name: nether
+         persistentVolumeClaim:
+           claimName: {{ .Release.Name }}-nether
+           readOnly: false
+      -  name: end
+         persistentVolumeClaim:
+           claimName: {{ .Release.Name }}-end
+           readOnly: false
+  tags:
+    - {{ .Release.Name }}
   version:
     channel: Paper
     customJar:
-      url: https://api.purpurmc.org/v2/purpur/{{ .Values.minecraftVersion }}/latest/download
+      url: https://api.purpurmc.org/v2/purpur/1.21.4/latest/download
     name: {{ .Values.minecraftVersion }}
-  tags:
-    - {{ .Release.Name }}
