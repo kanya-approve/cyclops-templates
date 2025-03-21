@@ -5,25 +5,20 @@ metadata:
 spec:
   clusterRef:
     name: minecraft-cluster
-  replicas: 1
-  template:
-    spec:
-      clusterRef:
-        name: minecraft-cluster
-      config: {}
-      podOverrides:
-        volumeMounts:
-          - name: {{ .Release.Name }}
-            mountPath: /data
-        volumes:
-          -  name: {{ .Release.Name }}
-             persistentVolumeClaim:
-               claimName: {{ .Release.Name }}
-               readOnly: false
-      version:
-        channel: Paper
-        customJar:
-          url: https://api.purpurmc.org/v2/purpur/{{ .Values.minecraftVersion }}/latest/download
-        name: {{ .Values.minecraftVersion }}
-      tags:
-        - {{ .Release.Name }}
+  config: {}
+  podOverrides:
+    volumeMounts:
+      - name: {{ .Release.Name }}
+        mountPath: /data
+    volumes:
+      -  name: {{ .Release.Name }}
+         persistentVolumeClaim:
+           claimName: {{ .Release.Name }}
+           readOnly: false
+  version:
+    channel: Paper
+    customJar:
+      url: https://api.purpurmc.org/v2/purpur/{{ .Values.minecraftVersion }}/latest/download
+    name: {{ .Values.minecraftVersion }}
+  tags:
+    - {{ .Release.Name }}
