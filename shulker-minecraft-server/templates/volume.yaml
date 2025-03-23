@@ -4,6 +4,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-end
+  namespace: apps
 spec:
   accessModes:
     - ReadWriteOnce
@@ -16,6 +17,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-nether
+  namespace: apps
 spec:
   accessModes:
     - ReadWriteOnce
@@ -28,6 +30,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: {{ .Release.Name }}-world
+  namespace: apps
 spec:
   accessModes:
     - ReadWriteOnce
