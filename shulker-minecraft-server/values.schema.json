@@ -61,6 +61,9 @@
     "persist",
     "plugins"
   ],
+  "required": [
+    "plugins"
+  ],
   "title": "Values",
   "type": "object"
 }
