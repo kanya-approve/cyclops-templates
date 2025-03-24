@@ -43,9 +43,6 @@ spec:
         enabled: false
     workload:
       main:
-        labels:
-          kuvel.azisaba.net/enable-server-discovery: "true"
-          kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
         podSpec:
           containers:
             main:
@@ -67,6 +64,9 @@ spec:
                 VIEW_DISTANCE: 7
             mcbackup:
               enabled: false
+          labels:
+            kuvel.azisaba.net/enable-server-discovery: "true"
+            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
     persistence:
       backups:
         enabled: false
