@@ -238,6 +238,7 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
+                PATCH_DEFINITIONS: /tmp/patches.json
                 PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 SIMULATION_DISTANCE: 4
