@@ -27,25 +27,21 @@ spec:
           containers:
             main:
               env:
-                DIFFICULTY: normal
                 ENABLE_QUERY: false
-                MAX_WORLD_SIZE: 2500
-                MOTD: "Welcome to the Vanilla Minecraft Server: {{ .Release.Name }}"
+                MAX_WORLD_SIZE: 250
+                MOTD: "Welcome to the Limbo Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
-                PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
-                PLUGINS: {{ default "" (join "," .Values.plugins) }}
-                PVP: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
-                TYPE: PURPUR
+                TYPE: LIMBO
                 USE_AIKAR_FLAGS: true
-                VERSION: {{ .Values.minecraftVersion }}
                 VIEW_DISTANCE: 7
             mcbackup:
               enabled: false
           labels:
             kuvel.azisaba.net/enable-server-discovery: "true"
+            kuvel.azisaba.net/initial-server: "true"
             kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
     persistence:
       backups:
