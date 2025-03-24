@@ -25,98 +25,98 @@ spec:
                     "file": "/data/bukkit.yml",
                     "ops": [
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].monsters",
                           "value": "20",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].animals",
                           "value": "5",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].water-animals",
                           "value": "2",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].water-ambient",
                           "value": "2",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].water-underground-creature",
                           "value": "3",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].axolotls",
                           "value": "3",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['spawn-limits'].ambient",
                           "value": "1",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].monster-spawns",
                           "value": "10",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].animal-spawns",
                           "value": "400",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].water-spawns",
                           "value": "400",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].water-ambient-spawns",
                           "value": "400",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].water-underground-creature-spawns",
                           "value": "400",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].axolotl-spawns",
                           "value": "400",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['ticks-per'].ambient-spawns",
                           "value": "400",
                           "value-type": "int"
@@ -128,7 +128,7 @@ spec:
                     "file": "/data/config/paper-global.yml",
                     "ops": [
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.proxies.velocity.enabled",
                           "value": "true",
                           "value-type": "bool"
@@ -140,7 +140,7 @@ spec:
                     "file": "/data/paper.yml",
                     "ops": [
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.settings['velocity-support'].enabled",
                           "value": "true",
                           "value-type": "bool"
@@ -152,56 +152,56 @@ spec:
                     "file": "/data/purpur.yml",
                     "ops": [
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['use-alternate-keepalive']",
                           "value": "true",
                           "value-type": "bool"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.zombie.['aggressive-towards-villager-when-lagging']",
                           "value": "false",
                           "value-type": "bool"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['entities-can-use-portals']",
                           "value": "false",
                           "value-type": "bool"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.villager.lobotomize.enabled",
                           "value": "true",
                           "value-type": "bool"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.villager.['search-radius'].acquire-poi",
                           "value": "16",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.villager.['search-radius'].nearest-bad-sensor",
                           "value": "16",
                           "value-type": "int"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.dolphin.['disable-treasure-searching']",
                           "value": "true",
                           "value-type": "bool"
                         }
                       },
                       {
-                        "$set": {
+                        "$put": {
                           "path": "$.['teleport-if-outside-border']",
                           "value": "true",
                           "value-type": "bool"
@@ -211,6 +211,7 @@ spec:
                   }
                 ]
               }
+
           enabled: true
           namespace: apps
     service:
