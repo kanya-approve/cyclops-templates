@@ -19,8 +19,8 @@ spec:
         settings:
           data:
             server.properties: |
+              forwarding-secrets={{ (lookup "v1" "Secret" "apps" "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}
               velocity-modern=true
-              forwarding-secrets={{ (lookup "v1" "Secret" .Release.Namespace "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}
           enabled: true
           namespace: apps
     service:
