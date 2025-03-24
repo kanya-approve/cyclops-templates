@@ -36,16 +36,24 @@ spec:
           containers:
             main:
               env:
+                ALLOW_NETHER: false
+                ANNOUNCE_PLAYER_ACHIEVEMENTS: false
                 COPY_CONFIG_DEST: /data
                 ENABLE_QUERY: false
+                GENERATE_STRUCTURES: false
                 MAX_WORLD_SIZE: 250
+                MEMORY: 1024M
                 MOTD: "Welcome to the Limbo Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
+                SPAWN_ANIMALS: false
+                SPAWN_MONSTERS: false
+                SPAWN_NPCS: false
                 TYPE: LIMBO
                 USE_AIKAR_FLAGS: true
+                VERSION: "LATEST"
                 VIEW_DISTANCE: 7
             mcbackup:
               enabled: false
