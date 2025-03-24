@@ -85,7 +85,7 @@ spec:
         enabled: true
         expandObjectName: true
         mountPath: /tmp/patches.json
-        objectName: patc
+        objectName: patch
         subPath: patches.json
         type: configmap
     portal:
