@@ -1,0 +1,4 @@
+apiVersion: v1
+name: application
+version: 0.0.0
+icon: https://purpurmc.org/docs/images/purpur-small.png

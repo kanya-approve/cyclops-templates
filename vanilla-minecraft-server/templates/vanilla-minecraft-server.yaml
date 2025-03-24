@@ -1,0 +1,101 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: {{ .Release.Name }}
+  namespace: apps
+spec:
+  chart:
+    spec:
+      chart: minecraft-java
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+  interval: 50m
+  values:
+    common:
+      configmap:
+        settings:
+          data:
+            purpur.yml: |
+              dolphin:
+                disable-treasure-searching: true
+              entities-can-use-portals: false
+              teleport-if-outside-border: true
+              use-alternate-keepalive: true
+              villager:
+                lobotomize:
+                  enabled: true
+                search-radius:
+                  acquire-poi: 16
+                  nearest-bed-sensor: 16
+              zombie:
+                aggressive-towards-villager-when-lagging: false
+            server.properties: |
+              network-compression-threshold: 256
+              simulation-distance: 4
+              view-distance: 7
+            spigot.yml: |
+              entity-activation-range:
+                animals: 16
+                flying-monsters: 48
+                misc: 8
+                monsters: 24
+                raiders: 48
+                villagers: 16
+                water: 8
+              entity-tracking-range:
+                animals: 48
+                misc: 32
+                monsters: 48
+                other: 64
+                players: 48
+              hopper-check: 8
+              hopper-transfer: 8
+              merge-radius:
+                item: 3.5
+                exp: 4.0
+              mob-spawn-range: 3
+              nerf-spawner-mobs: true
+              tick-inactive-villagers: false
+              view-distance: default
+          enabled: true
+          namespace: apps
+    service:
+      main:
+        ports:
+          query:
+            enabled: false
+      rcon:
+        enabled: false
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                DIFFICULTY: normal
+                ENABLE_QUERY: false
+                MAX_WORLD_SIZE: 2500
+                MOTD: "Welcome to Minecraft Server: {{ .Release.Name }}"
+                ONLINE_MODE: false
+                PLUGINS: {{- default "" (join "," .Values.plugins) }}
+                PVP: true
+                SNOOPER_ENABLED: false
+                TYPE: PURPUR
+                USE_AIKAR_FLAGS: true
+                VERSION: {{ .Values.minecraftVersion }}
+                VIEW_DISTANCE: 7
+            mcbackup:
+              enabled: false
+    persistence:
+      backups:
+        enabled: false
+      data:
+        enabled: true
+        size: 7Gi
+        type: emptyDir
+    portal:
+      open:
+        enabled: false

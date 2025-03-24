@@ -4,6 +4,6 @@
 
 ## Overview 📜
 
-### /shulker-minecraft-server
+### /vanilla-minecraft-server
 
-- creates a MinecraftServerFleet for [Shulker](https://github.com/jeremylvln/Shulker)
+- creates a Vanilla Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and Purpur

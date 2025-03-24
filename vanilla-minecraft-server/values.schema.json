@@ -37,31 +37,17 @@
         "1.14.1"
       ]
     },
-    "persist": {
-      "description": "Whether to persist/save minecraft server data",
-      "type": "boolean"
-    },
     "plugins": {
       "description": "List of plugin objects with download URLs",
       "type": "array",
       "items": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "format": "uri"
-          }
-        },
-        "required": ["url"]
+        "type": "string",
+        "format": "uri"
       }
     }
   },
   "order": [
     "minecraftVersion",
-    "persist",
-    "plugins"
-  ],
-  "required": [
     "plugins"
   ],
   "title": "Values",
