@@ -242,6 +242,7 @@ spec:
                 PATCH_DEFINITIONS: /tmp/patches.json
                 PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
+                RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
                 TYPE: PURPUR
