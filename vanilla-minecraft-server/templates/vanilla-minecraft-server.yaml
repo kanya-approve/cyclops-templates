@@ -14,26 +14,6 @@ spec:
         name: truecharts
   interval: 50m
   values:
-    common:
-      configmap:
-        settings:
-          data:
-            purpur.yml: |
-              dolphin:
-                disable-treasure-searching: true
-              entities-can-use-portals: false
-              teleport-if-outside-border: true
-              use-alternate-keepalive: true
-              villager:
-                lobotomize:
-                  enabled: true
-                search-radius:
-                  acquire-poi: 16
-                  nearest-bed-sensor: 16
-              zombie:
-                aggressive-towards-villager-when-lagging: false
-          enabled: true
-          namespace: apps
     service:
       main:
         ports:
@@ -74,15 +54,6 @@ spec:
         enabled: true
         size: 7Gi
         type: emptyDir
-      purpur:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /data/purpur.yml
-        objectName: settings
-        readOnly: 
-        subPath: purpur.yml
-        type: configmap
     portal:
       open:
         enabled: false
