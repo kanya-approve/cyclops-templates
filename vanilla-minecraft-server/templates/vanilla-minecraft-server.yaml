@@ -34,6 +34,11 @@ spec:
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
+                PAPER_VELOCITY_SECRET: 
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: VELOCITY_FORWARDING_SECRET
+                    name: minecraft-proxy-velocity
                 PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 SIMULATION_DISTANCE: 4
