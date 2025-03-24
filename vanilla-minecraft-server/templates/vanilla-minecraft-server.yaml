@@ -16,202 +16,47 @@ spec:
   values:
     common:
       configmap:
-        patch:
+        settings:
           data:
-            patches.json: |
-              {
-                "patches": [
-                  {
-                    "file": "/data/bukkit.yml",
-                    "ops": [
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].monsters",
-                          "value": "20",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].animals",
-                          "value": "5",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].water-animals",
-                          "value": "2",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].water-ambient",
-                          "value": "2",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].water-underground-creature",
-                          "value": "3",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].axolotls",
-                          "value": "3",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['spawn-limits'].ambient",
-                          "value": "1",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].monster-spawns",
-                          "value": "10",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].animal-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].water-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].water-ambient-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].water-underground-creature-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].axolotl-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['ticks-per'].ambient-spawns",
-                          "value": "400",
-                          "value-type": "int"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "file": "/data/config/paper-global.yml",
-                    "ops": [
-                      {
-                        "$put": {
-                          "path": "$.proxies.velocity.enabled",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "file": "/data/paper.yml",
-                    "ops": [
-                      {
-                        "$put": {
-                          "path": "$.settings['velocity-support'].enabled",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "file": "/data/purpur.yml",
-                    "ops": [
-                      {
-                        "$put": {
-                          "path": "$.['use-alternate-keepalive']",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.zombie.['aggressive-towards-villager-when-lagging']",
-                          "value": "false",
-                          "value-type": "bool"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['entities-can-use-portals']",
-                          "value": "false",
-                          "value-type": "bool"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.villager.lobotomize.enabled",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.villager.['search-radius'].acquire-poi",
-                          "value": "16",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.villager.['search-radius'].nearest-bad-sensor",
-                          "value": "16",
-                          "value-type": "int"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.dolphin.['disable-treasure-searching']",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      },
-                      {
-                        "$put": {
-                          "path": "$.['teleport-if-outside-border']",
-                          "value": "true",
-                          "value-type": "bool"
-                        }
-                      }
-                    ]
-                  }
-                ]
-              }
-
+            bukkit.yml: |
+              spawn-limits:
+                ambient: 1
+                animals: 5
+                axolotls: 3
+                monsters: 20
+                water-ambient: 2
+                water-animals: 2
+                water-underground-creature: 3
+              ticks-per:
+                ambient-spawns: 400
+                animal-spawns: 400
+                axolotl-spawns: 400
+                monster-spawns: 10
+                water-ambient-spawns: 400
+                water-spawns: 400
+                water-underground-creature-spawns: 400
+            paper.yml: |
+              settings:
+                velocity-support:
+                  enabled: true
+            paper-global.yml: |
+              proxies:
+                velocity:
+                  enabled: true
+            purpur.yml: |
+              dolphin:
+                disable-treasure-searching: true
+              entities-can-use-portals: false
+              teleport-if-outside-border: true
+              use-alternate-keepalive: true
+              villager:
+                lobotomize:
+                  enabled: true
+                search-radius:
+                  acquire-poi: 16
+                  nearest-bad-sensor: 16
+              zombie:
+                aggressive-towards-villager-when-lagging: false
           enabled: true
           namespace: apps
     service:
@@ -239,7 +84,6 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
-                PATCH_DEFINITIONS: /tmp/patches.json
                 PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 RCON_ENABLED: false
@@ -260,17 +104,42 @@ spec:
     persistence:
       backups:
         enabled: false
-      data:
-        enabled: true
-        size: 7Gi
-        type: sata
-      patches:
+      bukkit:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
-        mountPath: /tmp/patches.json
-        objectName: patch
-        subPath: patches.json
+        mountPath: /config/bukkit.yml
+        objectName: settings
+        subPath: bukkit.yml
+        type: configmap
+      data:
+        enabled: true
+        size: 7Gi
+        storageClass: sata
+        type: pvc
+      paper:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/paper.yml
+        objectName: settings
+        subPath: paper.yml
+        type: configmap
+      paper-global:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/config/paper-global.yml
+        objectName: settings
+        subPath: paper-global.yml
+        type: configmap
+      purpur:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/purpur.yml
+        objectName: settings
+        subPath: purpur.yml
         type: configmap
     portal:
       open:
