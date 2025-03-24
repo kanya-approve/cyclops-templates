@@ -74,6 +74,13 @@ spec:
         enabled: true
         size: 7Gi
         type: emptyDir
+      purpur:
+        enabled: true
+        expandObjectName: true
+        mountPath: /data/purpur.yml
+        objectName: settings
+        subPath: purpur.yml
+        type: configmap
     portal:
       open:
         enabled: false
