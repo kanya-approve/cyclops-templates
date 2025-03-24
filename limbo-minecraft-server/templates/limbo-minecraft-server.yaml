@@ -14,6 +14,15 @@ spec:
         name: truecharts
   interval: 50m
   values:
+    common:
+      configmap:
+        settings:
+          data:
+            server.properties: |
+              velocity-modern=true
+              forwarding-secrets={{ (lookup "v1" "Secret" .Release.Namespace "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}
+          enabled: true
+          namespace: apps
     service:
       main:
         ports:
@@ -27,6 +36,7 @@ spec:
           containers:
             main:
               env:
+                COPY_CONFIG_DEST: /data
                 ENABLE_QUERY: false
                 MAX_WORLD_SIZE: 250
                 MOTD: "Welcome to the Limbo Minecraft Server: {{ .Release.Name }}"
@@ -48,8 +58,16 @@ spec:
         enabled: false
       data:
         enabled: true
-        size: 7Gi
+        size: 500Mi
         type: emptyDir
+      server.properties:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/server.properties
+        objectName: settings
+        subPath: server.properties
+        type: configmap
     portal:
       open:
         enabled: false
