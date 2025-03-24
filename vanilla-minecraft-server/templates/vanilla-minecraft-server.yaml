@@ -80,7 +80,7 @@ spec:
                 MAX_WORLD_SIZE: 2500
                 MOTD: "Welcome to Minecraft Server: {{ .Release.Name }}"
                 ONLINE_MODE: false
-                PLUGINS: {{- default "" (join "," .Values.plugins) }}
+                PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 SNOOPER_ENABLED: false
                 TYPE: PURPUR
