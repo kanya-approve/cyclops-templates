@@ -263,7 +263,7 @@ spec:
       data:
         enabled: true
         size: 7Gi
-        type: emptyDir
+        type: sata
       patches:
         defaultMode: "0664"
         enabled: true
