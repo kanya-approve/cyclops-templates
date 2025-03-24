@@ -14,6 +14,25 @@ spec:
         name: truecharts
   interval: 50m
   values:
+    common:
+      configmap:
+        patch:
+          data:
+            patches.json: |
+              {
+                "file": "/data/paper.yml",
+                "ops": [
+                  {
+                    "$set": {
+                      "path": "$.settings['velocity-support'].enabled",
+                      "value": "true",
+                      "value-type": "bool"
+                    }
+                  }
+                ]
+              }
+          enabled: true
+          namespace: apps
     service:
       main:
         ports:
@@ -62,6 +81,13 @@ spec:
         enabled: true
         size: 7Gi
         type: emptyDir
+      patches:
+        enabled: true
+        expandObjectName: true
+        mountPath: /tmp/patches.json
+        objectName: patc
+        subPath: patches.json
+        type: configmap
     portal:
       open:
         enabled: false
