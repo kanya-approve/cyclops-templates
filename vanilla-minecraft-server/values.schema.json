@@ -44,11 +44,17 @@
         "type": "string",
         "format": "uri"
       }
+    },
+    "worldUrl": {
+      "description": "URL to download the world from",
+      "type": "string",
+      "format": "uri"
     }
   },
   "order": [
     "minecraftVersion",
-    "plugins"
+    "plugins",
+    "worldUrl"
   ],
   "title": "Values",
   "type": "object"
