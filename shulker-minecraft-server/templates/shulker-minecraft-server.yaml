@@ -12,6 +12,7 @@ spec:
     disableNether: false
     plugins:
 {{ toYaml .Values.plugins | indent 4 }}
+{{ if .Values.persist }}
   podOverrides:
     volumeMounts:
       - name: world
@@ -33,6 +34,7 @@ spec:
          persistentVolumeClaim:
            claimName: {{ .Release.Name }}-end
            readOnly: false
+{{ end }}
   tags:
     - {{ .Release.Name }}
   version:
