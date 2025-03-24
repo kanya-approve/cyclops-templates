@@ -60,7 +60,7 @@ spec:
         enabled: true
         size: 500Mi
         type: emptyDir
-      server.properties:
+      server-properties:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
