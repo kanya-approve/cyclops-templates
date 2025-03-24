@@ -38,7 +38,7 @@
       ]
     },
     "persist": {
-      "description": "Whether to persist minecraft server data",
+      "description": "Whether to persist/save minecraft server data",
       "type": "boolean"
     },
     "plugins": {
