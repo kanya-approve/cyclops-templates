@@ -72,7 +72,7 @@ spec:
     workload:
       main:
         labels:
-          kuvel.azisaba.net/enable-server-discovery: true
+          kuvel.azisaba.net/enable-server-discovery: "true"
           kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
         podSpec:
           containers:
