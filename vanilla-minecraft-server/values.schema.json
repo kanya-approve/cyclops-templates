@@ -46,7 +46,7 @@
       }
     },
     "worldUrl": {
-      "description": "URL to download the world from",
+      "description": "URL to download the world from, must be a direct link to a zip archive",
       "type": "string",
       "format": "uri"
     }
