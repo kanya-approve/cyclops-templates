@@ -100,6 +100,7 @@ spec:
                     expandObjectName: false
                     key: USERNAME
                     name: minecraft-proxy-luckperms
+                LUCKPERMS_MESSAGING_SERVICE: pluginmsg
                 LUCKPERMS_STORAGE_METHOD:
                   secretKeyRef:
                     expandObjectName: false
