@@ -120,6 +120,7 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
+                PLUGINS: https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/build/libs/ProtocolLib.jar
                 PVP: true
                 RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
