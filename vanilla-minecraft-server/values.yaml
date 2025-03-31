@@ -1,5 +1,10 @@
 minecraftVersion: "1.21.4"
-plugins:
-  - https://download.luckperms.net/1575/velocity/LuckPerms-Velocity-5.4.158.jar
-  - https://hangarcdn.papermc.io/plugins/Flyte/PluginPortal/versions/2.2.0/PAPER/PluginPortal-2.2.0.jar
+modrinthProjects:
+  - chunky
+  - chunkyborder
+  - essentialsx
+  - fastasyncworldedit
+  - luckperms
+  - pluginportal
+  - vane
 worldUrl: ""
