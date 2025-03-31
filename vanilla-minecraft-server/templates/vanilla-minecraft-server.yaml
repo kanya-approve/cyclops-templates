@@ -106,6 +106,7 @@ spec:
                     key: STORAGE_METHOD
                     name: minecraft-proxy-luckperms
                 MAX_WORLD_SIZE: 2500
+                MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOTD: "Welcome to the Vanilla Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
@@ -115,7 +116,6 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
-                PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
