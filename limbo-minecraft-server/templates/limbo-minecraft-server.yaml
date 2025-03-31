@@ -29,7 +29,7 @@ spec:
           query:
             enabled: false
       rcon:
-        enabled: true
+        enabled: false
     workload:
       main:
         podSpec:
