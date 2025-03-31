@@ -75,6 +75,36 @@ spec:
                 COPY_CONFIG_DEST: /data
                 DIFFICULTY: normal
                 ENABLE_QUERY: false
+                LUCKPERMS_DATA_ADDRESS:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: ADDRESS
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_DATABASE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: DATABASE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_PASSWORD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: PASSWORD
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_POOL_SETTINGS_MAXIMUM_POOL_SIZE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: POOL_SETTINGS_MAXIMUM_POOL_SIZE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_USERNAME:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: USERNAME
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_STORAGE_METHOD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: STORAGE_METHOD
+                    name: minecraft-proxy-luckperms
                 MAX_WORLD_SIZE: 2500
                 MOTD: "Welcome to the Vanilla Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
