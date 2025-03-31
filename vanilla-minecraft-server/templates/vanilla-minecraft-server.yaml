@@ -106,6 +106,8 @@ spec:
                     key: STORAGE_METHOD
                     name: minecraft-proxy-luckperms
                 MAX_WORLD_SIZE: 2500
+                MODRINTH_ALLOWED_VERSION_TYPE: beta
+                MODRINTH_DOWNLOAD_DEPENDENCIES: required
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOTD: "Welcome to the Vanilla Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
