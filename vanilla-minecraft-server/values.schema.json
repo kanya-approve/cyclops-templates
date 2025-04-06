@@ -37,8 +37,8 @@
         "1.14.1"
       ]
     },
-    "plugins": {
-      "description": "List of plugin objects with download URLs",
+    "modrinthProjects": {
+      "description": "List of modrinth plugin short names (Example - from https://modrinth.com/plugin/chunky the short name is chunky)",
       "type": "array",
       "items": {
         "type": "string",
@@ -53,7 +53,7 @@
   },
   "order": [
     "minecraftVersion",
-    "plugins",
+    "modrinthProjects",
     "worldUrl"
   ],
   "title": "Values",
