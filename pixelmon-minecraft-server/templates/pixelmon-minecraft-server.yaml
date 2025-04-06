@@ -148,8 +148,9 @@ spec:
                 WORLD: {{ .Values.worldUrl }}
                 {{ end }}
               probes:
-                liveness:
-                  initialDelaySeconds: 300
+                startup:
+                  spec:
+                    initialDelaySeconds: 300 # Pixelmon takes a while to start up
             mcbackup:
               enabled: false
           labels:
