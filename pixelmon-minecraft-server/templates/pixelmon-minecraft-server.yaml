@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-pixelmon
   namespace: apps
 spec:
   chart:
