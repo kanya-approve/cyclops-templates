@@ -1,0 +1,4 @@
+apiVersion: v1
+name: pixelmon-minecraft-server
+version: 0.0.0
+icon: https://reforged.gg/user/themes/antimatter/images/favicon.png

@@ -1,0 +1,23 @@
+{
+  "properties": {
+    "plugins": {
+      "description": "List of plugin objects with download URLs",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "worldUrl": {
+      "description": "URL to download the world from, must be a direct link to a zip archive",
+      "type": "string",
+      "format": "uri"
+    }
+  },
+  "order": [
+    "plugins",
+    "worldUrl"
+  ],
+  "title": "Values",
+  "type": "object"
+}
