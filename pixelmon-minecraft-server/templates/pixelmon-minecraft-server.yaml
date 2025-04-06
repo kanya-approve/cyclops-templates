@@ -58,6 +58,7 @@ spec:
           containers:
             main:
               env:
+                ALLOW_NETHER: false
                 CFG_VELOCITY_SECRET: 
                   secretKeyRef:
                     expandObjectName: false
@@ -152,3 +153,6 @@ spec:
     portal:
       open:
         enabled: false
+    resources:
+      limits:
+        memory: 10Gi
