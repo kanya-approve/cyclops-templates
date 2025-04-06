@@ -1,3 +1,15 @@
-plugins:
-  - https://hangarcdn.papermc.io/plugins/Flyte/PluginPortal/versions/2.2.0/PAPER/PluginPortal-2.2.0.jar
+modrinthProjects:
+  - chunky
+  - chunkyborder
+  - essentialsx
+  - explorers-compass
+  - fastasyncworldedit
+  - huskhomes
+  - journeymap
+  - luckperms
+  - natures-compass
+  - oh-the-biomes-weve-gone
+  - pixelmon
+  - pluginportal
+  - the-pixelmon-ost
 worldUrl: ""

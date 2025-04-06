@@ -38,7 +38,7 @@
       ]
     },
     "modrinthProjects": {
-      "description": "List of modrinth plugin short names (Example - from https://modrinth.com/plugin/chunky the short name is chunky)",
+      "description": "List of modrinth project short names (Example - from https://modrinth.com/plugin/chunky the short name is chunky)",
       "type": "array",
       "items": {
         "type": "string",

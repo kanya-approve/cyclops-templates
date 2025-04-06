@@ -1,7 +1,7 @@
 {
   "properties": {
-    "plugins": {
-      "description": "List of plugin objects with download URLs",
+    "modrinthProjects": {
+      "description": "List of modrinth project short names (Example - from https://modrinth.com/plugin/chunky the short name is chunky)",
       "type": "array",
       "items": {
         "type": "string",
@@ -15,7 +15,7 @@
     }
   },
   "order": [
-    "plugins",
+    "modrinthProjects",
     "worldUrl"
   ],
   "title": "Values",

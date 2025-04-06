@@ -65,7 +65,7 @@ spec:
           query:
             enabled: false
       rcon:
-        enabled: false
+        enabled: true
     workload:
       main:
         podSpec:
@@ -75,7 +75,42 @@ spec:
                 COPY_CONFIG_DEST: /data
                 DIFFICULTY: normal
                 ENABLE_QUERY: false
+                LUCKPERMS_DATA_ADDRESS:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: ADDRESS
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_DATABASE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: DATABASE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_PASSWORD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: PASSWORD
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_POOL_SETTINGS_MAXIMUM_POOL_SIZE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: POOL_SETTINGS_MAXIMUM_POOL_SIZE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_USERNAME:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: USERNAME
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_MESSAGING_SERVICE: pluginmsg
+                LUCKPERMS_STORAGE_METHOD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: STORAGE_METHOD
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_SYNC_MINUTES: -1
                 MAX_WORLD_SIZE: 2500
+                MODRINTH_ALLOWED_VERSION_TYPE: beta
+                MODRINTH_DOWNLOAD_DEPENDENCIES: required
+                MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOTD: "Welcome to the Pixelmon Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
@@ -85,7 +120,6 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
-                PLUGINS: {{ default "" (join "," .Values.plugins) }}
                 PVP: true
                 RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
