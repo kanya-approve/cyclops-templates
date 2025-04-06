@@ -4,7 +4,6 @@ modrinthProjects:
   - natures-compass
   - pixelmon
 spigotPluginIds:
-  - 13932 # FastAsyncWorldEdit
   - 28140 # LuckPerms
   - 34315 # Vault
   - 81534 # Chunky
