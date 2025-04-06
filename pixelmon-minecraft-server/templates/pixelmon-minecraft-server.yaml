@@ -37,28 +37,12 @@ spec:
                 water-ambient-spawns: 400
                 water-spawns: 400
                 water-underground-creature-spawns: 400
-            paper.yml: |
-              settings:
-                velocity-support:
-                  enabled: true
-            paper-global.yml: |
-              proxies:
-                velocity:
-                  enabled: true
-            purpur.yml: |
-              dolphin:
-                disable-treasure-searching: true
-              entities-can-use-portals: false
-              teleport-if-outside-border: true
-              use-alternate-keepalive: true
-              villager:
-                lobotomize:
-                  enabled: true
-                search-radius:
-                  acquire-poi: 16
-                  nearest-bad-sensor: 16
-              zombie:
-                aggressive-towards-villager-when-lagging: false
+            pcf-common.toml: |
+              [modernForwarding]
+              forwardingSecret = ${{ .Values.workload.main.podSpec.containers.main.env.VELOCITY_SECRET }}
+
+              [commandWrapping]
+              moddedArgumentTypes = ["livingthings:sampler_types"]
           enabled: true
           namespace: apps
     service:
@@ -118,7 +102,7 @@ spec:
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
-                PAPER_VELOCITY_SECRET: 
+                VELOCITY_SECRET: 
                   secretKeyRef:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
@@ -157,29 +141,13 @@ spec:
         size: 7Gi
         storageClass: sata
         type: pvc
-      paper:
+      pcf-common:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
-        mountPath: /config/paper.yml
+        mountPath: /config/config/pcf-common.toml
         objectName: settings
-        subPath: paper.yml
-        type: configmap
-      paper-global:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /config/config/paper-global.yml
-        objectName: settings
-        subPath: paper-global.yml
-        type: configmap
-      purpur:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /config/purpur.yml
-        objectName: settings
-        subPath: purpur.yml
+        subPath: pcf-common.toml
         type: configmap
     portal:
       open:
