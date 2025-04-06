@@ -37,6 +37,12 @@ spec:
                 water-ambient-spawns: 400
                 water-spawns: 400
                 water-underground-creature-spawns: 400
+            pcf-common.toml: |
+              [modernForwarding]
+              forwardingSecret = ${CFG_VELOCITY_SECRET}
+
+              [commandWrapping]
+              moddedArgumentTypes = ["livingthings:sampler_types"]
           enabled: true
           namespace: apps
     service:
@@ -52,6 +58,11 @@ spec:
           containers:
             main:
               env:
+                CFG_VELOCITY_SECRET: 
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: VELOCITY_FORWARDING_SECRET
+                    name: minecraft-proxy-velocity
                 COPY_CONFIG_DEST: /data
                 DIFFICULTY: normal
                 ENABLE_QUERY: false
@@ -133,9 +144,9 @@ spec:
       pcf-common:
         defaultMode: "0664"
         enabled: true
-        expandObjectName: false
+        expandObjectName: true
         mountPath: /config/config/pcf-common.toml
-        objectName: minecraft-proxy-settings
+        objectName: settings
         subPath: pcf-common.toml
         type: configmap
     portal:
