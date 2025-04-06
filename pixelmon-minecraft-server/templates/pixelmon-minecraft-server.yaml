@@ -39,7 +39,7 @@ spec:
                 water-underground-creature-spawns: 400
             pcf-common.toml: |
               [modernForwarding]
-              forwardingSecret = {{ (lookup "v1" "Secret" apps "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET }}
+              forwardingSecret = {{ (lookup "v1" "Secret" "apps" "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET }}
 
               [commandWrapping]
               moddedArgumentTypes = ["livingthings:sampler_types"]
