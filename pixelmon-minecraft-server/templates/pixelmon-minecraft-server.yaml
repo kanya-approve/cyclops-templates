@@ -65,7 +65,7 @@ spec:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
-        mountPath: /config/config/pcf-common.toml
+        mountPath: /config/pcf-common.toml
         objectName: settings
         subPath: pcf-common.toml
         type: configmap
