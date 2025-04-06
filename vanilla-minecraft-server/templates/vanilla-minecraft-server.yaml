@@ -137,7 +137,7 @@ spec:
               enabled: false
           labels:
             kuvel.azisaba.net/enable-server-discovery: "true"
-            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
+            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}-vanilla
     persistence:
       backups:
         enabled: false
