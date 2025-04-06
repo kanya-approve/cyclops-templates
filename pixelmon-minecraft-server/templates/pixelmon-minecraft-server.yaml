@@ -147,6 +147,9 @@ spec:
                 {{ if .Values.worldUrl }}
                 WORLD: {{ .Values.worldUrl }}
                 {{ end }}
+              probes:
+                liveness:
+                  initialDelaySeconds: 300
             mcbackup:
               enabled: false
           labels:
