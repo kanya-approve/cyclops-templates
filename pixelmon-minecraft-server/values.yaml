@@ -1,13 +1,11 @@
 modrinthProjects:
   - explorers-compass
   - journeymap
-  - luckperms
   - natures-compass
   - pixelmon
   - proxy-compatible-forge
 spigotPluginIds:
   - 6245 # InteractiveChat
-  - 34315 # Vault
   - 81534 # Chunky
   - 83767 # HuskHomes
   - 84278 # ChunkyBorder
