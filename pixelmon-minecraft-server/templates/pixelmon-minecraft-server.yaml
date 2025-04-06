@@ -131,7 +131,7 @@ spec:
                 MODRINTH_DOWNLOAD_DEPENDENCIES: required
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOHIST_BUILD: 168
-                MOTD: "Welcome to the Pixelmon Minecraft Server: {{ .Release.Name }}"
+                MOTD: "Welcome to the Pixelmon Minecraft Server: {{ printf "%s%s" (upper (substr .Release.Name 0 1)) (substr .Release.Name 1) }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
