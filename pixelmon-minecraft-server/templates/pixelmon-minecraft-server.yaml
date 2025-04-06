@@ -120,6 +120,7 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
+                PLUGIN: https://hangarcdn.papermc.io/plugins/Flyte/PluginPortal/versions/2.2.0/PAPER/PluginPortal-2.2.0.jar
                 PVP: true
                 RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
@@ -135,7 +136,7 @@ spec:
               enabled: false
           labels:
             kuvel.azisaba.net/enable-server-discovery: "true"
-            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}
+            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}-pixelmon
     persistence:
       backups:
         enabled: false
