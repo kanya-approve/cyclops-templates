@@ -58,7 +58,6 @@ spec:
           containers:
             main:
               env:
-                ALLOW_NETHER: false
                 CFG_VELOCITY_SECRET: 
                   secretKeyRef:
                     expandObjectName: false
@@ -139,7 +138,7 @@ spec:
         type: configmap
       data:
         enabled: true
-        size: 7Gi
+        size: 10Gi
         storageClass: sata
         type: pvc
       pcf-common:
@@ -153,6 +152,11 @@ spec:
     portal:
       open:
         enabled: false
-    resources:
-      limits:
-        memory: 10Gi
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              probes:
+                liveness:
+                  initialDelaySeconds: 300
