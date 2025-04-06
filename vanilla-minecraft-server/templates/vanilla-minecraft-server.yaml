@@ -125,7 +125,7 @@ spec:
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
-                SPIGET_RESOURCES: 6245,34315
+                SPIGET_RESOURCES: 34315
                 TYPE: PURPUR
                 USE_AIKAR_FLAGS: true
                 VERSION: {{ .Values.minecraftVersion }}
