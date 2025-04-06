@@ -45,6 +45,33 @@ spec:
               moddedArgumentTypes = ["livingthings:sampler_types"]
           enabled: true
           namespace: apps
+    persistence:
+      backups:
+        enabled: false
+      bukkit:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/bukkit.yml
+        objectName: settings
+        subPath: bukkit.yml
+        type: configmap
+      data:
+        enabled: true
+        size: 10Gi
+        storageClass: sata
+        type: pvc
+      pcf-common:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/config/pcf-common.toml
+        objectName: settings
+        subPath: pcf-common.toml
+        type: configmap
+    portal:
+      open:
+        enabled: false
     service:
       main:
         ports:
@@ -125,38 +152,3 @@ spec:
           labels:
             kuvel.azisaba.net/enable-server-discovery: "true"
             kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}-pixelmon
-    persistence:
-      backups:
-        enabled: false
-      bukkit:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /config/bukkit.yml
-        objectName: settings
-        subPath: bukkit.yml
-        type: configmap
-      data:
-        enabled: true
-        size: 10Gi
-        storageClass: sata
-        type: pvc
-      pcf-common:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /config/config/pcf-common.toml
-        objectName: settings
-        subPath: pcf-common.toml
-        type: configmap
-    portal:
-      open:
-        enabled: false
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              probes:
-                liveness:
-                  initialDelaySeconds: 300
