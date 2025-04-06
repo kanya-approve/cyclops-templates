@@ -37,12 +37,12 @@ spec:
                 water-ambient-spawns: 400
                 water-spawns: 400
                 water-underground-creature-spawns: 400
-            pcf-common.toml: |
-              [modernForwarding]
-              forwardingSecret = ${CFG_VELOCITY_SECRET}
+            # pcf-common.toml: |
+            #   [modernForwarding]
+            #   forwardingSecret = ${CFG_VELOCITY_SECRET}
 
-              [commandWrapping]
-              moddedArgumentTypes = ["livingthings:sampler_types"]
+            #   [commandWrapping]
+            #   moddedArgumentTypes = ["livingthings:sampler_types"]
           enabled: true
           namespace: apps
     service:
@@ -141,14 +141,14 @@ spec:
         size: 7Gi
         storageClass: sata
         type: pvc
-      pcf-common:
-        defaultMode: "0664"
-        enabled: true
-        expandObjectName: true
-        mountPath: /config/config/pcf-common.toml
-        objectName: settings
-        subPath: pcf-common.toml
-        type: configmap
+      # pcf-common:
+      #   defaultMode: "0664"
+      #   enabled: true
+      #   expandObjectName: true
+      #   mountPath: /config/config/pcf-common.toml
+      #   objectName: settings
+      #   subPath: pcf-common.toml
+      #   type: configmap
     portal:
       open:
         enabled: false
