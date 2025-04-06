@@ -113,7 +113,7 @@ spec:
                 MODRINTH_ALLOWED_VERSION_TYPE: beta
                 MODRINTH_DOWNLOAD_DEPENDENCIES: required
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
-                MOHIST_BUILD: e83a6b65
+                MOHIST_BUILD: 168tr
                 MOTD: "Welcome to the Pixelmon Minecraft Server: {{ .Release.Name }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
