@@ -122,7 +122,7 @@ spec:
                     name: minecraft-proxy-velocity
                 PLUGINS: https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/build/libs/ProtocolLib.jar
                 PVP: true
-                RCON_ENABLED: false
+                RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
                 SPIGET_RESOURCES: 34315

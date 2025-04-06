@@ -125,7 +125,7 @@ spec:
                     name: minecraft-proxy-velocity
                 PLUGINS: https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
                 PVP: true
-                RCON_ENABLED: false
+                RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
                 SPIGET_RESOURCES: {{ default "" (join "," .Values.spigotPluginIds) }}
