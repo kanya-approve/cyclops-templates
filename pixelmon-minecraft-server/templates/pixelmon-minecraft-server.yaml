@@ -39,7 +39,7 @@ spec:
                 water-underground-creature-spawns: 400
             pcf-common.toml: |
               [modernForwarding]
-              forwardingSecret = ${{ .Values.workload.main.podSpec.containers.main.env.VELOCITY_SECRET }}
+              forwardingSecret = {{ (lookup "v1" "Secret" .Release.Namespace "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET }}
 
               [commandWrapping]
               moddedArgumentTypes = ["livingthings:sampler_types"]
@@ -102,11 +102,6 @@ spec:
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
-                VELOCITY_SECRET: 
-                  secretKeyRef:
-                    expandObjectName: false
-                    key: VELOCITY_FORWARDING_SECRET
-                    name: minecraft-proxy-velocity
                 PLUGINS: https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
                 PVP: true
                 RCON_ENABLED: true
