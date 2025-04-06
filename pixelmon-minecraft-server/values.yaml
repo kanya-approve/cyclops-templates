@@ -1,11 +1,14 @@
 modrinthProjects:
-  - chunky
-  - chunkyborder
-  - essentialsx
   - explorers-compass
-  - fastasyncworldedit
   - journeymap
-  - luckperms
   - natures-compass
   - pixelmon
+spigotPluginIds:
+  - 13932 # FastAsyncWorldEdit
+  - 28140 # LuckPerms
+  - 34315 # Vault
+  - 81534 # Chunky
+  - 83767 # HuskHomes
+  - 84278 # ChunkyBorder
+  - 108700 # Plugin Portal
 worldUrl: ""

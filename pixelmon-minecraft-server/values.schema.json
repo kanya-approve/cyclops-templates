@@ -1,7 +1,15 @@
 {
   "properties": {
     "modrinthProjects": {
-      "description": "List of modrinth project short names (Example - from https://modrinth.com/plugin/chunky the short name is chunky)",
+      "description": "List of modrinth project short names (Example - from https://modrinth.com/mod/pixelmon the short name is pixelmon)",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "spigotPluginIds": {
+      "description": "List of spigot resource ids (Example - from https://www.spigotmc.org/resources/luckperms.28140 the resource id is 28140)",
       "type": "array",
       "items": {
         "type": "string",
@@ -16,6 +24,7 @@
   },
   "order": [
     "modrinthProjects",
+    "spigotPluginIds",
     "worldUrl"
   ],
   "title": "Values",

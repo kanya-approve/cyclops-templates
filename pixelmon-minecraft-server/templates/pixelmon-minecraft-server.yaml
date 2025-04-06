@@ -120,11 +120,12 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
-                PLUGINS: https://hangarcdn.papermc.io/plugins/Flyte/PluginPortal/versions/2.2.0/PAPER/PluginPortal-2.2.0.jar
+                PLUGINS: https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
                 PVP: true
                 RCON_ENABLED: false
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
+                SPIGET_RESOURCES: {{ default "" (join "," .Values.spigotPluginIds) }}
                 TYPE: KETTING
                 USE_AIKAR_FLAGS: true
                 VERSION: 1.20.2
