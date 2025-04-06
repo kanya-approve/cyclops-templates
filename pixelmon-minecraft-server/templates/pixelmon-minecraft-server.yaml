@@ -37,12 +37,13 @@ spec:
                 water-ambient-spawns: 400
                 water-spawns: 400
                 water-underground-creature-spawns: 400
-            pcf-common.toml: |
-              [modernForwarding]
-              forwardingSecret = "${CFG_VELOCITY_SECRET}"
-
-              [commandWrapping]
-              moddedArgumentTypes = ["livingthings:sampler_types"]
+            mohist.yml: |
+              forge:
+                bukkitpermissionshandler: false
+              worldmanage: true
+              velocity:
+                enabled: true
+                secret: '${CFG_VELOCITY_SECRET}'
           enabled: true
           namespace: apps
     persistence:
@@ -61,13 +62,13 @@ spec:
         size: 10Gi
         storageClass: sata
         type: pvc
-      pcf-common:
+      mohist:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
-        mountPath: /config/config/pcf-common.toml
+        mountPath: /config/mohist-config/mohist.yml
         objectName: settings
-        subPath: pcf-common.toml
+        subPath: mohist.yml
         type: configmap
     portal:
       open:
