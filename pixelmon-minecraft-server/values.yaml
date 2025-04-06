@@ -3,6 +3,7 @@ modrinthProjects:
   - journeymap
   - natures-compass
   - pixelmon
+  - proxy-compatible-forge
 spigotPluginIds:
   - 28140 # LuckPerms
   - 34315 # Vault
