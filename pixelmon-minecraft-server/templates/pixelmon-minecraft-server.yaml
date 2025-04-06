@@ -12,6 +12,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: truecharts
+  driftDetection:
+    mode: enabled
   interval: 50m
   values:
     common:
