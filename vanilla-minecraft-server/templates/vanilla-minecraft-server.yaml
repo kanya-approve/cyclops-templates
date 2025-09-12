@@ -181,3 +181,7 @@ spec:
     portal:
       open:
         enabled: false
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
