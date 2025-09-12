@@ -183,5 +183,5 @@ spec:
         enabled: false
     resources:
       limits:
-        cpu: 4000m
+        cpu: 2500m
         memory: 8Gi
