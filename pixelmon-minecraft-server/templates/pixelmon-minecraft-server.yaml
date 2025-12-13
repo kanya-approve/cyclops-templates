@@ -135,7 +135,7 @@ spec:
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
-                PLUGINS: https://github.com/EssentialsX/Essentials/releases/download/2.21.0/EssentialsX-2.21.0.jar
+                PLUGINS: https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar
                 PVP: true
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
