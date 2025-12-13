@@ -43,7 +43,7 @@ spec:
                 GENERATE_STRUCTURES: false
                 MAX_WORLD_SIZE: 250
                 MEMORY: 1024M
-                MOTD: "Welcome to the Limbo Minecraft Server: {{ printf "%s%s" (upper (substr .Release.Name 0 1)) (substr .Release.Name 1) }}"
+                MOTD: "Welcome to the Limbo Minecraft Server: {{ printf "%s%s" (upper (substr 0 1 .Release.Name)) (substr 1 (sub (len .Release.Name) 1) .Release.Name) }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
                 PLUGINS: https://ci.loohpjames.com/job/ViaLimbo/9/artifact/target/ViaLimbo-1.1.4.jar
