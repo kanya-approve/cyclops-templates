@@ -1,3 +1,4 @@
+diskSpace: 7Gi
 minecraftVersion: "1.21.11"
 modrinthProjects:
   - chunky

@@ -1,3 +1,4 @@
+diskSpace: 10Gi
 modrinthProjects:
   - explorers-compass
   - journeymap

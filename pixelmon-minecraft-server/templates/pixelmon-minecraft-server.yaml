@@ -59,7 +59,7 @@ spec:
         type: configmap
       data:
         enabled: true
-        size: 10Gi
+        size: {{ .Values.diskSpace }}
         storageClass: sata
         type: pvc
       mohist:

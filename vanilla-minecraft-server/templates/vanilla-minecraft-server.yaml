@@ -151,7 +151,7 @@ spec:
         type: configmap
       data:
         enabled: true
-        size: 7Gi
+        size: {{ .Values.diskSpace }}
         storageClass: sata
         type: pvc
       paper:

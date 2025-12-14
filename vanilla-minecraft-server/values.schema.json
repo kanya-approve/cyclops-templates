@@ -1,5 +1,27 @@
 {
   "properties": {
+    "diskSpace": {
+      "description": "Amount of disk space to allocate to the server in gigibytes (Gi) (1Gi = 1024Mi)",
+      "type": "string",
+      "enum": [
+        "20Gi",
+        "19Gi",
+        "18Gi",
+        "17Gi",
+        "16Gi",
+        "15Gi",
+        "14Gi",
+        "13Gi",
+        "12Gi",
+        "11Gi",
+        "10Gi",
+        "9Gi",
+        "8Gi",
+        "7Gi",
+        "6Gi",
+        "5Gi"
+      ]
+    },
     "minecraftVersion": {
       "description": "Minecraft version to run on the server",
       "type": "string",
