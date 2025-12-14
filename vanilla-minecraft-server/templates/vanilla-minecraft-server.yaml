@@ -151,7 +151,7 @@ spec:
         type: configmap
       data:
         enabled: true
-        size: 7Gi
+        size: 15Gi
         storageClass: sata
         type: pvc
       paper:
