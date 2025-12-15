@@ -108,7 +108,7 @@ spec:
                     name: minecraft-proxy-luckperms
                 LUCKPERMS_SYNC_MINUTES: -1
                 MAX_WORLD_SIZE: 2500
-                MODRINTH_ALLOWED_VERSION_TYPE: beta
+                MODRINTH_ALLOWED_VERSION_TYPE: alpha
                 MODRINTH_DOWNLOAD_DEPENDENCIES: required
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOTD: "Welcome to the Vanilla Minecraft Server: {{ printf "%s%s" (upper (substr 0 1 .Release.Name)) (substr 1 (len .Release.Name) .Release.Name) }}"
