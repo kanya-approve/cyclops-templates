@@ -7,7 +7,6 @@ modrinthProjects:
   - huskhomes
   - interactivechat
   - luckperms
-  - pluginportal
   - placeholderapi
   - vane
 storageClass: spot-ceph

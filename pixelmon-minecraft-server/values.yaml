@@ -11,6 +11,5 @@ spigotPluginIds:
   - 81534 # Chunky
   - 83767 # HuskHomes
   - 84278 # ChunkyBorder
-  - 108700 # Plugin Portal
 storageClass: spot-ceph
 worldUrl: ""
