@@ -5,7 +5,6 @@ modrinthProjects:
   - natures-compass
   - pixelmon
 spigotPluginIds:
-  - 6245 # InteractiveChat
   - 28140 # LuckPerms
   - 34315 # Vault
   - 81534 # Chunky
