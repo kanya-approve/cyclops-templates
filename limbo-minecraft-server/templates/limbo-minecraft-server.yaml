@@ -77,6 +77,8 @@ spec:
         objectName: settings
         subPath: server.properties
         type: configmap
+    podOptions:
+      hostUsers: true
     portal:
       open:
         enabled: false
