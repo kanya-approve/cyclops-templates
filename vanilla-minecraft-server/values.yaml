@@ -11,4 +11,5 @@ modrinthProjects:
   - pluginportal
   - placeholderapi
   - vane
+storageClass: spot-ceph
 worldUrl: ""

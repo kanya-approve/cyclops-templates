@@ -19,7 +19,11 @@
         "8Gi",
         "7Gi",
         "6Gi",
-        "5Gi"
+        "5Gi",
+        "4Gi",
+        "3Gi",
+        "2Gi",
+        "1Gi"
       ]
     },
     "minecraftVersion": {
@@ -74,6 +78,11 @@
         "format": "uri"
       }
     },
+    "storageClass": {
+      "default": "spot-ceph",
+      "description": "Storage class to use for PVC",
+      "type": "string"
+    },
     "worldUrl": {
       "description": "URL to download the world from, must be a direct link to a zip archive",
       "type": "string",
@@ -83,6 +92,7 @@
   "order": [
     "minecraftVersion",
     "modrinthProjects",
+    "storageClass",
     "worldUrl"
   ],
   "title": "Values",

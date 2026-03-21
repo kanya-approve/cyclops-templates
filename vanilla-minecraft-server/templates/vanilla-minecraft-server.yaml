@@ -152,7 +152,7 @@ spec:
       data:
         enabled: true
         size: {{ .Values.diskSpace }}
-        storageClass: sata
+        storageClass: {{ .Values.storageClass }}
         type: pvc
       paper:
         defaultMode: "0664"

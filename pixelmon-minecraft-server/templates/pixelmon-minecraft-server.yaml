@@ -60,7 +60,7 @@ spec:
       data:
         enabled: true
         size: {{ .Values.diskSpace }}
-        storageClass: sata
+        storageClass: {{ .Values.storageClass }}
         type: pvc
       mohist:
         defaultMode: "0664"
