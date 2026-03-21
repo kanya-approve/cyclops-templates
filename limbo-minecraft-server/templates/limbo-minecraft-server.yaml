@@ -46,7 +46,7 @@ spec:
                 MOTD: "Welcome to the Limbo Minecraft Server: {{ .Release.Name | title }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
                 ONLINE_MODE: false
-                PLUGINS: https://ci.loohpjames.com/job/ViaLimbo/9/artifact/target/ViaLimbo-1.1.4.jar
+                PLUGINS: https://ci.loohpjames.com/job/ViaLimbo/10/artifact/target/ViaLimbo-1.1.5.jar
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
                 SPAWN_ANIMALS: false
@@ -55,7 +55,7 @@ spec:
                 TYPE: LIMBO
                 USE_AIKAR_FLAGS: true
                 VERSION: "LATEST"
-                VIEW_DISTANCE: 7
+                VIEW_DISTANCE: 5
             mcbackup:
               enabled: false
           labels:
