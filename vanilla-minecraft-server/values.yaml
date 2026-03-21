@@ -3,7 +3,6 @@ minecraftVersion: "1.21.11"
 modrinthProjects:
   - chunky
   - chunkyborder
-  - essentialsx
   - fastasyncworldedit
   - huskhomes
   - interactivechat
