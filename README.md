@@ -8,6 +8,10 @@
 
 - creates a Limbo Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Limbo](https://github.com/LOOHP/limbo)
 
+### /pixelmon-minecraft-server
+
+- creates a Pixelmon Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Mohist](https://mohistmc.com/)
+
 ### /vanilla-minecraft-server
 
 - creates a Vanilla Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Purpur](https://github.com/PurpurMC/Purpur)
