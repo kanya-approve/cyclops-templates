@@ -43,7 +43,6 @@
       }
     },
     "storageClass": {
-      "default": "spot-ceph",
       "description": "Storage class to use for PVC",
       "type": "string"
     },
