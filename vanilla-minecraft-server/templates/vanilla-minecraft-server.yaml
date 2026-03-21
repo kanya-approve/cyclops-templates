@@ -128,7 +128,7 @@ spec:
                 SPIGET_RESOURCES: 34315
                 TYPE: PURPUR
                 USE_AIKAR_FLAGS: true
-                VERSION: {{ .Values.minecraftVersion }}
+                VERSION_FROM_MODRINTH_PROJECTS: true
                 VIEW_DISTANCE: 7
                 {{ if .Values.worldUrl }}
                 WORLD: {{ .Values.worldUrl }}

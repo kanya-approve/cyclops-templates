@@ -14,4 +14,4 @@
 
 ### /vanilla-minecraft-server
 
-- creates a Vanilla Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Purpur](https://github.com/PurpurMC/Purpur)
+- creates a Vanilla Minecraft Server with the latest version supported by given plugins using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Purpur](https://github.com/PurpurMC/Purpur)
