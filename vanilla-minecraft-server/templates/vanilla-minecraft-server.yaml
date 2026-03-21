@@ -120,15 +120,23 @@ spec:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
                     name: minecraft-proxy-velocity
-                PLUGINS: https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar
+                PLUGINS: >
+                  https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
+                  https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar,
+                  https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.15.0/FastAsyncWorldEdit-Paper-2.15.0.jar,
+                  https://github.com/oddlama/vane/releases/download/v1.21.1/all-plugins.zip
                 PVP: true
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
-                SPIGET_RESOURCES: 34315
+                SPIGET_RESOURCES: 6245,28140,34315,75870,81534,83767,84278
                 TYPE: PURPUR
                 USE_AIKAR_FLAGS: true
+                {{ if .Values.modrinthProjects }}
                 VERSION_FROM_MODRINTH_PROJECTS: true
+                {{ else }}
+                VERSION: LATEST
+                {{ end }}
                 VIEW_DISTANCE: 7
                 {{ if .Values.worldUrl }}
                 WORLD: {{ .Values.worldUrl }}
