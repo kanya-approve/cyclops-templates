@@ -136,6 +136,7 @@ spec:
                 VERSION_FROM_MODRINTH_PROJECTS: true
                 {{ else }}
                 VERSION: LATEST
+                VERSION_FROM_MODRINTH_PROJECTS: false
                 {{ end }}
                 VIEW_DISTANCE: 7
                 {{ if .Values.worldUrl }}
