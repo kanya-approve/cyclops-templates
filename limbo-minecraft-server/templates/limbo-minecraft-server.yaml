@@ -35,7 +35,7 @@ spec:
               infoForwarding:
                 secret: >-
                   {{`{{ (lookup "v1" "Secret" .Release.Namespace
-                  "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}`}}
+                  "infisical-managed-secrets").data.VELOCITY_FORWARDING_SECRET | b64dec }}`}}
                 type: MODERN
               joinMessage:
                 enable: false
