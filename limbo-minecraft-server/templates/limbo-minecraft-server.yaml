@@ -18,9 +18,50 @@ spec:
       configmap:
         settings:
           data:
-            server.properties: |
-              forwarding-secrets={{`{{ (lookup "v1" "Secret" .Release.Namespace "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}`}}
-              velocity-modern=true
+            settings.yml: |
+              bind:
+                ip: 0.0.0.0
+                port: 25565
+              bossBar:
+                enable: false
+              brandName:
+                content: Limbo
+                enable: true
+              debugLevel: 1
+              dimension: THE_END
+              gameMode: 3
+              headerAndFooter:
+                enable: false
+              infoForwarding:
+                secret: >-
+                  {{`{{ (lookup "v1" "Secret" .Release.Namespace
+                  "minecraft-proxy-velocity").data.VELOCITY_FORWARDING_SECRET | b64dec }}`}}
+                type: MODERN
+              joinMessage:
+                enable: false
+              maxPlayers: 100
+              netty:
+                threads:
+                  bossGroup: 1
+                  workerGroup: 2
+                useEpoll: true
+              ping:
+                description: >-
+                  {"text": "Welcome to the Limbo Minecraft Server: {{ .Release.Name | title
+                  }}"}
+                version: NanoLimbo
+              playerList:
+                enable: false
+                username: NanoLimbo
+              readTimeout: 30000
+              spawnPosition:
+                pitch: 0
+                x: 0
+                'y': 64
+                yaw: 0
+                z: 0
+              title:
+                enable: false
           enabled: true
           namespace: apps
     service:
@@ -36,26 +77,16 @@ spec:
           containers:
             main:
               env:
-                ALLOW_NETHER: false
-                ANNOUNCE_PLAYER_ACHIEVEMENTS: false
                 COPY_CONFIG_DEST: /data
-                ENABLE_QUERY: false
-                GENERATE_STRUCTURES: false
-                MAX_WORLD_SIZE: 250
-                MEMORY: 1024M
-                MOTD: "Welcome to the Limbo Minecraft Server: {{ .Release.Name | title }}"
-                NETWORK_COMPRESSION_THRESHOLD: 256
-                ONLINE_MODE: false
-                PLUGINS: https://ci.loohpjames.com/job/ViaLimbo/10/artifact/target/ViaLimbo-1.1.5.jar
-                SIMULATION_DISTANCE: 4
-                SNOOPER_ENABLED: false
-                SPAWN_ANIMALS: false
-                SPAWN_MONSTERS: false
-                SPAWN_NPCS: false
-                TYPE: LIMBO
-                USE_AIKAR_FLAGS: true
-                VERSION: "LATEST"
-                VIEW_DISTANCE: 5
+                MEMORY: 128M
+                TYPE: NANOLIMBO
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 320Mi
+                requests:
+                  cpu: 50m
+                  memory: 128Mi
             mcbackup:
               enabled: false
           labels:
@@ -69,13 +100,13 @@ spec:
         enabled: true
         size: 500Mi
         type: emptyDir
-      server-properties:
+      settings:
         defaultMode: "0664"
         enabled: true
         expandObjectName: true
-        mountPath: /config/server.properties
+        mountPath: /config/settings.yml
         objectName: settings
-        subPath: server.properties
+        subPath: settings.yml
         type: configmap
     podOptions:
       hostUsers: true
