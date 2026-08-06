@@ -173,8 +173,8 @@ spec:
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
                 PLUGINS: >
                   https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
-                  https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar,
-                  https://hangarcdn.papermc.io/plugins/LOOHP/InteractiveChat/versions/4.3.5/PAPER/InteractiveChat-4.3.5.0.jar
+                  https://github.com/EssentialsX/Essentials/releases/download/2.22.0/EssentialsX-2.22.0.jar,
+                  https://hangarcdn.papermc.io/plugins/LOOHP/InteractiveChat/versions/2026.1.1/PAPER/InteractiveChat-2026.1.1.0.jar
                 PVP: true
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4

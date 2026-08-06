@@ -122,10 +122,10 @@ spec:
                     name: minecraft-proxy-velocity
                 PLUGINS: >
                   https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
-                  https://github.com/EssentialsX/Essentials/releases/download/2.21.2/EssentialsX-2.21.2.jar,
-                  https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.15.0/FastAsyncWorldEdit-Paper-2.15.0.jar,
+                  https://github.com/EssentialsX/Essentials/releases/download/2.22.0/EssentialsX-2.22.0.jar,
+                  https://github.com/IntellectualSites/FastAsyncWorldEdit/releases/download/2.15.3/FastAsyncWorldEdit-Paper-2.15.3.jar,
                   https://github.com/oddlama/vane/releases/download/v1.21.1/all-plugins.zip,
-                  https://hangarcdn.papermc.io/plugins/LOOHP/InteractiveChat/versions/4.3.5/PAPER/InteractiveChat-4.3.5.0.jar
+                  https://hangarcdn.papermc.io/plugins/LOOHP/InteractiveChat/versions/2026.1.1/PAPER/InteractiveChat-2026.1.1.0.jar
                 PVP: true
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
