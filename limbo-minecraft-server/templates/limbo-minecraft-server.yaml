@@ -33,9 +33,7 @@ spec:
               headerAndFooter:
                 enable: false
               infoForwarding:
-                secret: >-
-                  {{`{{ (lookup "v1" "Secret" .Release.Namespace
-                  "infisical-managed-secrets").data.VELOCITY_FORWARDING_SECRET | b64dec }}`}}
+                secret: '${CFG_VELOCITY_SECRET}'
                 type: MODERN
               joinMessage:
                 enable: false
@@ -77,8 +75,14 @@ spec:
           containers:
             main:
               env:
+                CFG_VELOCITY_SECRET:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: VELOCITY_FORWARDING_SECRET
+                    name: infisical-managed-secrets
                 COPY_CONFIG_DEST: /data
                 MEMORY: 128M
+                SYNC_SKIP_NEWER_IN_DESTINATION: false
                 TYPE: NANOLIMBO
               resources:
                 limits:
