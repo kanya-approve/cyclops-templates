@@ -1,4 +1,4 @@
 apiVersion: v1
 name: limbo-minecraft-server
 version: 0.0.0
-icon: https://discord.do/wp-content/uploads/2023/08/The-Universe-Network%E2%94%83Minecraft-Server.jpg
+icon: https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.1/assets/minecraft/textures/item/barrier.png

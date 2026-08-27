@@ -35,7 +35,7 @@
       }
     },
     "spigotPluginIds": {
-      "description": "List of spigot resource ids (Example - from https://www.spigotmc.org/resources/luckperms.28140 the resource id is 28140) (default plugins: Chunky, ChunkyBorder, HuskHomes, LuckPerms, and Vault)",
+      "description": "List of spigot resource ids (Example - from https://www.spigotmc.org/resources/luckperms.28140 the resource id is 28140) (default plugins: Chunky, ChunkyBorder, LuckPerms, and Vault)",
       "type": "array",
       "items": {
         "type": "string",
