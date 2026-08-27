@@ -156,6 +156,7 @@ spec:
                 LUCKPERMS_STORAGE_METHOD: mariadb
                 LUCKPERMS_SYNC_MINUTES: -1
                 MAX_WORLD_SIZE: 2500
+                MEMORY: 6144M
                 MODRINTH_ALLOWED_VERSION_TYPE: release
                 MODRINTH_DOWNLOAD_DEPENDENCIES: required
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
@@ -191,4 +192,7 @@ spec:
     resources:
       limits:
         cpu: 2500m
-        memory: 8Gi
+        memory: 10Gi
+      requests:
+        cpu: 500m
+        memory: 10Gi
