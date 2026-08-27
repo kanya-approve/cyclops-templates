@@ -130,7 +130,7 @@ spec:
                 RCON_ENABLED: true
                 SIMULATION_DISTANCE: 4
                 SNOOPER_ENABLED: false
-                SPIGET_RESOURCES: {{ default "6245,28140,34315,81534,83767,84278" (join "," .Values.spigotPluginIds) }}
+                SPIGET_RESOURCES: {{ default "6245,28140,34315,81534,84278" (join "," .Values.spigotPluginIds) }}
                 TYPE: PURPUR
                 USE_AIKAR_FLAGS: true
                 {{ if .Values.modrinthProjects }}
