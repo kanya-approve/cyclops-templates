@@ -1,0 +1,14 @@
+diskSpace: 10Gi
+modrinthProjects:
+  - mekanism
+  - mekanism-additions
+  - mekanism-generators
+  - mekanism-tools
+spigotPluginIds:
+  - 28140 # LuckPerms
+  - 34315 # Vault
+  - 81534 # Chunky
+  - 83767 # HuskHomes
+  - 84278 # ChunkyBorder
+storageClass: spot-ceph
+worldUrl: ""

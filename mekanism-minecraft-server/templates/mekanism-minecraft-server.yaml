@@ -1,0 +1,202 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: {{ .Release.Name }}-mekanism
+  namespace: apps
+spec:
+  chart:
+    spec:
+      chart: minecraft-java
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+  driftDetection:
+    mode: enabled
+  interval: 50m
+  values:
+    common:
+      configmap:
+        settings:
+          data:
+            bukkit.yml: |
+              spawn-limits:
+                ambient: 1
+                animals: 5
+                axolotls: 3
+                monsters: 20
+                water-ambient: 2
+                water-animals: 2
+                water-underground-creature: 3
+              ticks-per:
+                ambient-spawns: 400
+                animal-spawns: 400
+                axolotl-spawns: 400
+                monster-spawns: 10
+                water-ambient-spawns: 400
+                water-spawns: 400
+                water-underground-creature-spawns: 400
+            mohist.yml: |
+              forge:
+                bukkitpermissionshandler: false
+              worldmanage: true
+              velocity:
+                enabled: true
+                secret: '${CFG_VELOCITY_SECRET}'
+            paper.yml: |
+              settings:
+                velocity-support:
+                  enabled: true
+            paper-global.yml: |
+              proxies:
+                velocity:
+                  enabled: true
+            purpur.yml: |
+              dolphin:
+                disable-treasure-searching: true
+              entities-can-use-portals: false
+              teleport-if-outside-border: true
+              use-alternate-keepalive: true
+              villager:
+                lobotomize:
+                  enabled: true
+                search-radius:
+                  acquire-poi: 16
+                  nearest-bad-sensor: 16
+              zombie:
+                aggressive-towards-villager-when-lagging: false
+            youer.yml: |
+              forge:
+                bukkitpermissionshandler: false
+              worldmanage: true
+              velocity:
+                enabled: true
+                secret: '${CFG_VELOCITY_SECRET}'
+          enabled: true
+          namespace: apps
+    persistence:
+      backups:
+        enabled: false
+      bukkit:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/bukkit.yml
+        objectName: settings
+        subPath: bukkit.yml
+        type: configmap
+      data:
+        enabled: true
+        size: {{ .Values.diskSpace }}
+        storageClass: {{ .Values.storageClass }}
+        type: pvc
+      mohist:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/mohist-config/mohist.yml
+        objectName: settings
+        subPath: mohist.yml
+        type: configmap
+      youer:
+        defaultMode: "0664"
+        enabled: true
+        expandObjectName: true
+        mountPath: /config/youer-config/youer.yml
+        objectName: settings
+        subPath: youer.yml
+        type: configmap
+    portal:
+      open:
+        enabled: false
+    service:
+      main:
+        ports:
+          query:
+            enabled: false
+      rcon:
+        enabled: true
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                CFG_VELOCITY_SECRET:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: VELOCITY_FORWARDING_SECRET
+                    name: minecraft-proxy-velocity
+                COPY_CONFIG_DEST: /data
+                DIFFICULTY: normal
+                ENABLE_QUERY: false
+                LUCKPERMS_DATA_ADDRESS:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: ADDRESS
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_DATABASE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: DATABASE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_PASSWORD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: PASSWORD
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_POOL_SETTINGS_MAXIMUM_POOL_SIZE:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: POOL_SETTINGS_MAXIMUM_POOL_SIZE
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_DATA_USERNAME:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: USERNAME
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_MESSAGING_SERVICE: pluginmsg
+                LUCKPERMS_STORAGE_METHOD:
+                  secretKeyRef:
+                    expandObjectName: false
+                    key: STORAGE_METHOD
+                    name: minecraft-proxy-luckperms
+                LUCKPERMS_SYNC_MINUTES: -1
+                MAX_WORLD_SIZE: 2500
+                MODRINTH_ALLOWED_VERSION_TYPE: release
+                MODRINTH_DOWNLOAD_DEPENDENCIES: required
+                MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
+                MOTD: "Welcome to the Mekanism Minecraft Server: {{ printf "%s%s" (upper (substr .Release.Name 0 1)) (substr .Release.Name 1) }}"
+                NETWORK_COMPRESSION_THRESHOLD: 256
+                ONLINE_MODE: false
+                PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
+                PLUGINS: >
+                  https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
+                  https://github.com/EssentialsX/Essentials/releases/download/2.22.0/EssentialsX-2.22.0.jar,
+                  https://hangarcdn.papermc.io/plugins/LOOHP/InteractiveChat/versions/2026.1.1/PAPER/InteractiveChat-2026.1.1.0.jar
+                PVP: true
+                RCON_ENABLED: true
+                SIMULATION_DISTANCE: 4
+                SNOOPER_ENABLED: false
+                SPIGET_RESOURCES: {{ default "28140,34315,81534,83767,84278" (join "," .Values.spigotPluginIds) }}
+                TYPE: YOUER
+                USE_AIKAR_FLAGS: true
+                VERSION: 1.21.1
+                VIEW_DISTANCE: 7
+                {{ if .Values.worldUrl }}
+                WORLD: {{ .Values.worldUrl }}
+                {{ end }}
+              probes:
+                startup:
+                  spec:
+                    initialDelaySeconds: 300 # Mekanism on NeoForge takes a while to start up
+            mcbackup:
+              enabled: false
+          labels:
+            kuvel.azisaba.net/enable-server-discovery: "true"
+            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}-mekanism
+    resources:
+      limits:
+        cpu: 2500m
+        memory: 8Gi

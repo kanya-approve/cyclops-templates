@@ -8,9 +8,13 @@
 
 - creates a Limbo Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Limbo](https://github.com/LOOHP/limbo)
 
+### /mekanism-minecraft-server
+
+- creates a Mekanism tech/electricity Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server), [Youer](https://mohistmc.com/) (Forge/NeoForge + Bukkit hybrid), and the [Mekanism](https://modrinth.com/mod/mekanism) mod suite
+
 ### /pixelmon-minecraft-server
 
-- creates a Pixelmon Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Mohist](https://mohistmc.com/)
+- creates a Pixelmon Minecraft Server using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Youer](https://mohistmc.com/)
 
 ### /vanilla-minecraft-server
 
