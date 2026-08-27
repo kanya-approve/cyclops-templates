@@ -78,34 +78,26 @@ spec:
                 LUCKPERMS_DATA_ADDRESS:
                   secretKeyRef:
                     expandObjectName: false
-                    key: ADDRESS
-                    name: minecraft-proxy-luckperms
+                    key: LUCKPERMS_DB_ADDRESS
+                    name: infisical-managed-secrets
                 LUCKPERMS_DATA_DATABASE:
                   secretKeyRef:
                     expandObjectName: false
-                    key: DATABASE
-                    name: minecraft-proxy-luckperms
+                    key: LUCKPERMS_DB_USERNAME
+                    name: infisical-managed-secrets
                 LUCKPERMS_DATA_PASSWORD:
                   secretKeyRef:
                     expandObjectName: false
-                    key: PASSWORD
-                    name: minecraft-proxy-luckperms
-                LUCKPERMS_DATA_POOL_SETTINGS_MAXIMUM_POOL_SIZE:
-                  secretKeyRef:
-                    expandObjectName: false
-                    key: POOL_SETTINGS_MAXIMUM_POOL_SIZE
-                    name: minecraft-proxy-luckperms
+                    key: LUCKPERMS_DB_PASSWORD
+                    name: infisical-managed-secrets
+                LUCKPERMS_DATA_POOL_SETTINGS_MAXIMUM_POOL_SIZE: 3
                 LUCKPERMS_DATA_USERNAME:
                   secretKeyRef:
                     expandObjectName: false
-                    key: USERNAME
-                    name: minecraft-proxy-luckperms
+                    key: LUCKPERMS_DB_USERNAME
+                    name: infisical-managed-secrets
                 LUCKPERMS_MESSAGING_SERVICE: pluginmsg
-                LUCKPERMS_STORAGE_METHOD:
-                  secretKeyRef:
-                    expandObjectName: false
-                    key: STORAGE_METHOD
-                    name: minecraft-proxy-luckperms
+                LUCKPERMS_STORAGE_METHOD: mariadb
                 LUCKPERMS_SYNC_MINUTES: -1
                 MAX_WORLD_SIZE: 2500
                 MODRINTH_ALLOWED_VERSION_TYPE: alpha
@@ -119,7 +111,7 @@ spec:
                   secretKeyRef:
                     expandObjectName: false
                     key: VELOCITY_FORWARDING_SECRET
-                    name: minecraft-proxy-velocity
+                    name: infisical-managed-secrets
                 PLUGINS: >
                   https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
                   https://github.com/EssentialsX/Essentials/releases/download/2.22.0/EssentialsX-2.22.0.jar,
