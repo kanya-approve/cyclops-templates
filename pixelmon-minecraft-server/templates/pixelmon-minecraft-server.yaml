@@ -41,17 +41,14 @@ spec:
               forge:
                 bukkitpermissionshandler: false
               worldmanage: true
-              velocity:
-                enabled: true
-                secret: '${CFG_VELOCITY_SECRET}'
             paper.yml: |
               settings:
                 velocity-support:
-                  enabled: true
+                  enabled: false
             paper-global.yml: |
               proxies:
                 velocity:
-                  enabled: true
+                  enabled: false
             purpur.yml: |
               dolphin:
                 disable-treasure-searching: true
@@ -70,9 +67,6 @@ spec:
               forge:
                 bukkitpermissionshandler: false
               worldmanage: true
-              velocity:
-                enabled: true
-                secret: '${CFG_VELOCITY_SECRET}'
           enabled: true
           namespace: apps
     persistence:
@@ -123,11 +117,6 @@ spec:
           containers:
             main:
               env:
-                CFG_VELOCITY_SECRET: 
-                  secretKeyRef:
-                    expandObjectName: false
-                    key: VELOCITY_FORWARDING_SECRET
-                    name: infisical-managed-secrets
                 COPY_CONFIG_DEST: /data
                 DIFFICULTY: normal
                 ENABLE_QUERY: false
@@ -152,7 +141,7 @@ spec:
                     expandObjectName: false
                     key: LUCKPERMS_DB_USERNAME
                     name: infisical-managed-secrets
-                LUCKPERMS_MESSAGING_SERVICE: pluginmsg
+                LUCKPERMS_MESSAGING_SERVICE: sql
                 LUCKPERMS_STORAGE_METHOD: mariadb
                 LUCKPERMS_SYNC_MINUTES: -1
                 MAX_WORLD_SIZE: 2500
@@ -161,7 +150,7 @@ spec:
                 MODRINTH_PROJECTS: {{ default "" (join "," .Values.modrinthProjects) }}
                 MOTD: "Welcome to the Pixelmon Minecraft Server: {{ printf "%s%s" (upper (substr 0 1 .Release.Name)) (substr 1 (len .Release.Name) .Release.Name) }}"
                 NETWORK_COMPRESSION_THRESHOLD: 256
-                ONLINE_MODE: false
+                ONLINE_MODE: true
                 PAPER_CONFIG_REPO: https://raw.githubusercontent.com/Alpha018/paper-config-optimized/main
                 PLUGINS: >
                   https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/ProtocolLib.jar,
@@ -185,6 +174,3 @@ spec:
                     initialDelaySeconds: 300 # Pixelmon takes a while to start up
             mcbackup:
               enabled: false
-          labels:
-            kuvel.azisaba.net/enable-server-discovery: "true"
-            kuvel.azisaba.net/preferred-server-name: {{ .Release.Name }}-pixelmon
