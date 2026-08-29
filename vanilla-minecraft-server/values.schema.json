@@ -1,7 +1,7 @@
 {
   "properties": {
     "accessType": {
-      "description": "How the server is exposed. 'ingress' creates a cloudflare-tunnel ingress at <name>-mc.<domain>; 'loadbalancer' / 'nodeport' expose the service directly on port 25565.",
+      "description": "How the server is exposed. 'ingress' creates an Ingress at <name>-mc.<domain>; 'loadbalancer' provisions a LoadBalancer service; 'nodeport' exposes it on a node port (set nodePort).",
       "type": "string",
       "enum": [
         "ingress",

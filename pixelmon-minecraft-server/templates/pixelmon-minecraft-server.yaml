@@ -26,7 +26,7 @@ spec:
           annotations:
             cloudflare-tunnel-ingress-controller.strrl.dev/backend-protocol: tcp
           hosts:
-            - host: {{ .Release.Name }}-mc.{{ .Values.domain }}
+            - host: {{ .Release.Name }}-pixelmon-mc.{{ .Values.domain }}
               paths:
                 - path: /
                   pathType: Prefix
