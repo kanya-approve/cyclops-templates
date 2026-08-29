@@ -9,9 +9,17 @@
         "nodeport"
       ]
     },
+    "ingressClassName": {
+      "description": "IngressClass to use when accessType is 'ingress'. Leave empty to use the cluster's default IngressClass.",
+      "type": "string"
+    },
     "domain": {
       "description": "Base domain used for the ingress host <name>-mc.<domain>. Only used when accessType is 'ingress'.",
       "type": "string"
+    },
+    "nodePort": {
+      "description": "Fixed NodePort (30000-32767) to expose the server on. Only used when accessType is 'nodeport'; leave 0 to let Kubernetes auto-assign.",
+      "type": "integer"
     },
     "diskSpace": {
       "description": "Amount of disk space to allocate to the server in gigibytes (Gi) (1Gi = 1024Mi)",
@@ -67,7 +75,9 @@
   },
   "order": [
     "accessType",
+    "ingressClassName",
     "domain",
+    "nodePort",
     "modrinthProjects",
     "storageClass",
     "worldUrl"

@@ -1,6 +1,8 @@
 accessType: ingress
+ingressClassName: ""
 diskSpace: 10Gi
 domain: ""
+nodePort: 0
 modrinthProjects:
   - mekanism
   - mekanism-additions

@@ -20,7 +20,9 @@ spec:
       ingress:
         main:
           enabled: {{ eq .Values.accessType "ingress" }}
-          ingressClassName: cloudflare-tunnel
+          {{ if .Values.ingressClassName }}
+          ingressClassName: {{ .Values.ingressClassName }}
+          {{ end }}
           annotations:
             cloudflare-tunnel-ingress-controller.strrl.dev/backend-protocol: tcp
           hosts:
@@ -119,6 +121,10 @@ spec:
       main:
         type: {{ if eq .Values.accessType "loadbalancer" }}LoadBalancer{{ else if eq .Values.accessType "nodeport" }}NodePort{{ else }}ClusterIP{{ end }}
         ports:
+          {{ if and (eq .Values.accessType "nodeport") .Values.nodePort }}
+          main:
+            nodePort: {{ .Values.nodePort }}
+          {{ end }}
           query:
             enabled: false
       rcon:
