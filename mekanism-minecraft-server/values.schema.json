@@ -18,8 +18,10 @@
       "type": "string"
     },
     "nodePort": {
-      "description": "Fixed NodePort (30000-32767) to expose the server on. Only used when accessType is 'nodeport'; leave 0 to let Kubernetes auto-assign.",
-      "type": "integer"
+      "description": "Node port to expose the server on. Only used when accessType is 'nodeport'.",
+      "type": "integer",
+      "minimum": 30000,
+      "maximum": 32767
     },
     "diskSpace": {
       "description": "Amount of disk space to allocate to the server in gigibytes (Gi) (1Gi = 1024Mi)",

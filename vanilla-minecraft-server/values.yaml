@@ -2,7 +2,7 @@ accessType: ingress
 ingressClassName: ""
 diskSpace: 7Gi
 domain: ""
-nodePort: 0
+nodePort: 30000
 modrinthProjects: []
 spigotPluginIds:
   - 6245 # PlaceholderAPI
