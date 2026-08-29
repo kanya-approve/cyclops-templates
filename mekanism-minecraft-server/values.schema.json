@@ -1,5 +1,18 @@
 {
   "properties": {
+    "accessType": {
+      "description": "How the server is exposed. 'ingress' creates a cloudflare-tunnel ingress at <name>-mc.<domain>; 'loadbalancer' / 'nodeport' expose the service directly on port 25565.",
+      "type": "string",
+      "enum": [
+        "ingress",
+        "loadbalancer",
+        "nodeport"
+      ]
+    },
+    "domain": {
+      "description": "Base domain used for the ingress host <name>-mc.<domain>. Only used when accessType is 'ingress'.",
+      "type": "string"
+    },
     "diskSpace": {
       "description": "Amount of disk space to allocate to the server in gigibytes (Gi) (1Gi = 1024Mi)",
       "type": "string",
@@ -53,6 +66,8 @@
     }
   },
   "order": [
+    "accessType",
+    "domain",
     "modrinthProjects",
     "spigotPluginIds",
     "storageClass",

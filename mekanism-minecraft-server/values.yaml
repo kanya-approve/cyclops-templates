@@ -1,4 +1,6 @@
+accessType: ingress
 diskSpace: 10Gi
+domain: ""
 modrinthProjects:
   - mekanism
   - mekanism-additions

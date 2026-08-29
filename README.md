@@ -15,3 +15,7 @@
 ### /vanilla-minecraft-server
 
 - creates a Vanilla Minecraft Server with the latest version supported by given plugins using [docker-minecraft-server](https://github.com/itzg/docker-minecraft-server) and [Purpur](https://github.com/PurpurMC/Purpur)
+
+## Configuration ⚙️
+
+Each server's options are defined in its `values.schema.json` and rendered as form fields in Cyclops. Notably, `accessType` selects how the server is exposed: a `cloudflare-tunnel` ingress at `<name>-mc.<domain>` (set `domain`), a `LoadBalancer`, or a `NodePort`.

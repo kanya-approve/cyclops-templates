@@ -15,6 +15,17 @@ spec:
   interval: 50m
   values:
     common:
+      ingress:
+        main:
+          enabled: {{ eq .Values.accessType "ingress" }}
+          ingressClassName: cloudflare-tunnel
+          annotations:
+            cloudflare-tunnel-ingress-controller.strrl.dev/backend-protocol: tcp
+          hosts:
+            - host: {{ .Release.Name }}-mc.{{ .Values.domain }}
+              paths:
+                - path: /
+                  pathType: Prefix
       configmap:
         settings:
           data:
@@ -61,6 +72,7 @@ spec:
           namespace: apps
     service:
       main:
+        type: {{ if eq .Values.accessType "loadbalancer" }}LoadBalancer{{ else if eq .Values.accessType "nodeport" }}NodePort{{ else }}ClusterIP{{ end }}
         ports:
           query:
             enabled: false

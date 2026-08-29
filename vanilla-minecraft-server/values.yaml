@@ -1,4 +1,6 @@
+accessType: ingress
 diskSpace: 7Gi
+domain: ""
 modrinthProjects: []
 spigotPluginIds:
   - 6245 # PlaceholderAPI
