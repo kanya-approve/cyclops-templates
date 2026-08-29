@@ -190,7 +190,8 @@ spec:
               probes:
                 startup:
                   spec:
-                    initialDelaySeconds: 300 # Mekanism on NeoForge takes a while to start up
+                    initialDelaySeconds: 30
+                    failureThreshold: 120 # ~10min window for cold mod downloads; ready ~1min on warm starts
             mcbackup:
               enabled: false
     resources:
