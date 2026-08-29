@@ -1,4 +1,0 @@
-apiVersion: v1
-name: limbo-minecraft-server
-version: 0.0.0
-icon: https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.1/assets/minecraft/textures/item/barrier.png
